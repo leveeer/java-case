@@ -1,0 +1,75 @@
+CallBack详解：
+
+HibernateCallback: 是一个接口
+
+方法 doInHibernate(Session session);
+
+在业务层：ItemManager的findAllItems( )方法中：
+
+this.getHibernateTemplate().executeFind( new HibernateCallback( ){
+
+public Object doInHibernate(Session session){
+
+return session.createQuery(“from Item t ”);
+
+}
+
+}
+
+);
+
+
+
+Hiberante的织入：
+
+// Add：实现HibernateCallback的类
+
+public class  Add implements HibernateCallback{
+
+public void doInHibernate (Session session){
+
+User user=new user();//创建user对象
+
+  user.setName(“Tom”);
+
+session.save(user);
+
+}
+
+}
+
+new CRUD( ).persistent(new Add());
+
+}
+
+public class CRUD {
+
+public void persistent(HibernateCallback hibernateCallback){
+
+//创建真正的session对象
+//获取session
+Session session=HibernateUtil.getSession();
+
+Try{
+//开启事务
+session.beginTransaction();
+
+//调用new Abcd()对象的doInHibernate方法，相当于执行了save(user)
+
+hibernateCallback.doInHibernate(session);
+
+session.getTransactionCommit();
+
+}catch(Exception e){
+
+session.getTransaction().rollback();
+
+}
+
+}
+
+}
+
+在(CRUD)类中调用创建真正的session对象，并且commit()（匿名类的理解类似，只是缺省了一个定义类的过程，直接在另一个的方法中将匿名类作为参数传入，然后调用）
+
+Spring后台自动创建真正的对象，完成匿名类中定义的操作。这就是spring织入事务的原理与过程。我们只需要写 save()对象的方法，后面的由spring自动处理。

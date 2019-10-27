@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展选择器</title>
+    <style>
+        /*子类选择器*/
+        div p{
+            color:red;
+        }
+
+        /*父选择器*/
+        div > p{
+            border: 1px solid;
+        }
+
+        /*属性选择器*/
+        input[type='text']{
+            border: 5px solid;
+        }
+
+        /*伪类选择器*/
+        a:link{
+            color: pink;
+        }
+        a:hover{
+            color: green;
+        }
+        a:active{
+            color: yellow;
+        }
+        a:visited{
+            color: red;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div><p>江西农业大学</p></div>
+    <p>软件学院</p>
+    <div>1613班</div>
+
+    <input type="text">
+    <input type="password">
+
+
+    <br>
+    <a href="#">江西农业大学</a>
+
+</body>
+</html>

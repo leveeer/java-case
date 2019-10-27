@@ -1,0 +1,7 @@
+com\jxau\p2p\base\mapper\LogininfoMapper.class
+com\jxau\p2p\base\domain\BaseDomain.class
+com\jxau\p2p\base\service\ILogininfoService.class
+com\jxau\p2p\base\util\JSONResult.class
+com\jxau\p2p\base\service\impl\LogininfoServiceImpl.class
+com\jxau\p2p\base\domain\Logininfo.class
+com\jxau\p2p\base\util\MD5.class

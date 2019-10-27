@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function fun() {
+            //发送异步请求
+            //创建核心对象
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            //发送请求
+            xmlhttp.open("GET","/testAjax.do?username=tom",true);
+            xmlhttp.send();
+
+            //接收并处理来自服务器的响应结果
+            xmlhttp.onreadystatechange=function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("text").innerHTML = xmlhttp.responseText;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<input type="button" value="发送ajax请求" onclick="fun();">
+<div id="text">
+
+</div>
+</body>
+
+</html>

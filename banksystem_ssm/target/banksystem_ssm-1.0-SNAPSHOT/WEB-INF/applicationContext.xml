@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--扫描注解的包-->
+    <context:component-scan base-package="com.jxau">
+        <!--将Controller的注解排除掉 -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--&lt;!&ndash;读取连接数据库配置信息&ndash;&gt;
+    <context:property-placeholder location="classpath:jdbc.properties,classpath:redis.properties"/>-->
+
+    <!--导入redis配置-->
+    <import resource="spring-redis.xml"/>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath*:redis.properties</value>
+            </list>
+        </property>
+
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+
+
+
+    <!--配置数据源-->
+    <bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--配置sqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--扫描domain包，使用别名-->
+        <property name="typeAliasesPackage" value="com.jxau.domain"/>
+        <!--读取mybatis的主配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--指定mybatis  mapper文件的位置-->
+        <property name="mapperLocations" value="classpath:com/jxau/mapper/*.xml"/>
+    </bean>
+
+    <!--配置映射扫描器，将dao接口加入IOC容器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.jxau.mapper"/>
+        <!--注入sqlSessionFactory-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--配置事务传播特性-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="user*" propagation="REQUIRED"/>
+            <tx:method name="chang*" propagation="REQUIRED"/>
+            <tx:method name="deposit" propagation="REQUIRED"/>
+            <tx:method name="withdraw*" propagation="REQUIRED"/>
+            <tx:method name="transfer*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--配置切入点表达式，哪些方法织入事务-->
+    <aop:config>
+        <aop:pointcut id="allServiceMethod" expression="execution(* com.jxau.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="allServiceMethod"/>
+    </aop:config>
+
+
+</beans>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- bean definitions here -->
+
+    <!--告知spring在创建容器要扫描的包-->
+    <context:component-scan base-package="com.jxau"></context:component-scan>
+
+    <!--<bean id="userService" class="com.jxau.service.impl.UserServiceImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="userDao" ref="userDao"/>
+        <property name="logDao" ref="logDao"/>
+    </bean>-->
+
+    <!--<bean id="userDao" class="com.jxau.dao.impl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>-->
+
+    <!--<bean id="logDao" class="com.jxau.dao.impl.LogDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>-->
+
+    <!--配置sessionFactory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+    </bean>
+
+    <!--配置数据源DataSource-->
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring_hibernate_maven"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <!--注入sessionFactory获取HibernateTemplate-->
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <!--注入数据源连接数据库-->
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+
+    <!--配置事务传播特性-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!---->
+    <aop:config>
+        <aop:pointcut id="allServiceMethod" expression="execution(* com.jxau.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="allServiceMethod"/>
+    </aop:config>
+
+</beans>

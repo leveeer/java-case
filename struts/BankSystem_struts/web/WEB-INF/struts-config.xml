@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="OperaForm" type="com.jxau.web.forms.OperaForm"></form-bean>
+    </form-beans>
+
+    <action-mappings>
+
+        <!--处理用户请求-->
+        <action path="/userAction"
+                type="com.jxau.web.actions.UserAction"
+                name="OperaForm"
+                validate="false"
+                parameter="command"
+                >
+            <forward name="success" path="/register_success.jsp"></forward>
+            <forward name="userIndex" path="/userIndex.jsp"></forward>
+            <forward name="login" path="/login.jsp"></forward>
+            <forward name="inquiry" path="/inquiry.jsp"></forward>
+            <forward name="opera_success" path="/opera_success.jsp"></forward>
+            <forward name="withdraw" path="/withdraw.jsp"></forward>
+            <forward name="transfer" path="/transfer.jsp"></forward>
+            <forward name="record" path="/record.jsp"></forward>
+        </action>
+
+        <!--处理管理员请求-->
+        <action path="/adminAction"
+                name="OperaForm"
+                type="com.jxau.web.actions.AdminAction"
+                validate="false"
+                parameter="command"
+                >
+            <forward name="adminIndex" path="/adminIndex.jsp"></forward>
+            <forward name="login" path="/login.jsp"></forward>
+            <forward name="userlist" path="/userlist.jsp"></forward>
+            <forward name="findAllUser" path="/adminAction.do?command=findAllUser"></forward>
+        </action>
+
+    </action-mappings>
+</struts-config>

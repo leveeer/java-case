@@ -1,0 +1,6 @@
+com\jxau\utils\DateUtils.class
+com\jxau\service\impl\ProductServiceImpl.class
+com\jxau\controller\ProductController.class
+com\jxau\domain\Product.class
+com\jxau\service\ProductService.class
+com\jxau\dao\ProductDao.class

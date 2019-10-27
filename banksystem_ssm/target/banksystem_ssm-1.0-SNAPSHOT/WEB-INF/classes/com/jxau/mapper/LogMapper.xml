@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxau.mapper.LogMapper">
+    <!--配置结果集-->
+    <resultMap id="logMap" type="log">
+        <id property="opId" column="l_id"/>
+        <result property="opType" column="l_type"/>
+        <result property="opTime" column="l_time" javaType="java.sql.Timestamp"/>
+        <result property="opMoney" column="l_money"/>
+        <result property="beforeMoney" column="l_beforeMoney"/>
+        <result property="currentMoney" column="l_currentMoney"/>
+        <!--配置关联属性-->
+        <association property="user" column="uid" javaType="user">
+            <id property="id" column="uid"/>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+            <result property="money" column="money"/>
+            <result property="isLocked" column="isLocked"/>
+        </association>
+    </resultMap>
+    <insert id="insertLog" parameterType="log">
+        insert into log(l_type, l_time, l_money, l_beforeMoney, l_currentMoney, uid)
+        values(#{opType}, #{opTime}, #{opMoney}, #{beforeMoney}, #{currentMoney}, #{user.id});
+    </insert>
+
+    <select id="findAllLog" parameterType="Integer" resultMap="logMap">
+        select l.*, u.username from log l, user u where l.uid = u.uid and l.uid = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true">
+    <file url="file://$PROJECT_DIR$" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/lib/c3p0-0.9.5.2.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/mchange-commons-java-0.2.12.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/mysql-connector-java-5.1.37-bin.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/c3p0-config.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/jxau/bank/manager/impl/ManagerImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/jxau/bank/view/InquiryFrame.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/jxau/bank/view/Menu.java" charset="GBK" />
+    <file url="file://D:/QQ/files/1519695805/FileRecv/TestPlus.java" charset="GBK" />
+  </component>
+</project>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--开启注解扫描-->
+    <context:component-scan base-package="com.jxau"/>
+    <!--开启springMVC框架注解的支持-->
+    <!--配置注解驱动，让转换器生效-->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+
+    </bean>
+
+    <!--告知spring前端控制器，不拦截以下静态资源-->
+    <mvc:resources mapping="/js/" location="/js/**"/>
+    <mvc:resources mapping="/css/" location="/css/**"/>
+    <mvc:resources mapping="/images/" location="/images/**"/>
+
+    <!--配置视图解析器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--注册自定义日期转换类-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.jxau.util.DateConverter">
+                    <property name="pattern" value="yyyy-MM-dd"></property>
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+    <!--配置文件解析器对象，id名必须是multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10485760"/>
+    </bean>
+
+    <!--配置异常处理器-->
+    <bean id="sysExceptionResolver" class="com.jxau.util.SysExceptionResolver"></bean>
+
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--要拦截的具体方法-->
+            <mvc:mapping path="/interceptor/*"/>
+            <!--不要拦截的方法-->
+            <!--<mvc:exclude-mapping path=""/>-->
+            <!--配置拦截器对象-->
+            <bean class="com.jxau.util.MyInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+</beans>

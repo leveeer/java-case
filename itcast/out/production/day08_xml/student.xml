@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE students SYSTEM "student.dtd">
+<!--<!DOCTYPE students [
+		<!ELEMENT students (student*) >
+		<!ELEMENT student (name,age,sex)>
+		<!ELEMENT name (#PCDATA)>
+		<!ELEMENT age (#PCDATA)>
+		<!ELEMENT sex (#PCDATA)>
+		<!ATTLIST student number ID #REQUIRED>
+		]>-->
+<students>
+	<student number="heima_0001">
+		<name id = "itcast">
+			<xing>张</xing>
+			<ming>三</ming>
+		</name>
+		<age>18</age>
+		<sex>male</sex>
+	</student>
+
+	<student number="heima_0002">
+		<name>jack</name>
+		<age>18</age>
+		<sex>female</sex>
+	</student>
+</students>
+

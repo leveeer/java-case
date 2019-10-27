@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery/jquery-2.1.3.js"></script>
+    <script>
+        function fun() {
+            $.get("/testAjax.do",{username:"rose"},function(data){
+                alert(data);
+                document.getElementById("text").innerHTML = data;
+            });
+        }
+    </script>
+
+</head>
+<body>
+
+<input type="button" value="发送ajax请求" onclick="fun();">
+<div id="text">
+
+</div>
+</body>
+</html>

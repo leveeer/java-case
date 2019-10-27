@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- bean definitions here -->
+    <!--创建action，注入业务层对象-->
+    <bean name="/student" class="com.jxau.web.actions.StudentAction" scope="prototype">
+        <property name="studentService" ref="studentService"/>
+    </bean>
+
+    <bean id="studentService" class="com.jxau.service.impl.StudentServiceImpl">
+        <property name="studentDao" ref="studentDao"/>
+    </bean>
+
+    <bean id="studentDao" class="com.jxau.dao.impl.StudentDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean name="/admin" class="com.jxau.web.actions.AdminAction" scope="prototype">
+        <property name="adminService" ref="adminService"/>
+    </bean>
+
+    <bean id="adminService" class="com.jxau.service.impl.AdminServiceImpl">
+        <property name="adminDao" ref="adminDao"/>
+    </bean>
+
+    <bean id="adminDao" class="com.jxau.dao.impl.AdminDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,21 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views
+      suffix: .jsp
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springbootdemo
+    username: root
+    password: root
+
+logging:
+  level:
+    com.jxau: debug
+
+mybatis:
+  #configuration:
+    #map-underscore-to-camel-case: true
+  type-aliases-package: com.jxau.pojo
+
+  #mapper-locations: mapper/*.xml

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery/jquery-2.1.3.js"></script>
+    <script>
+        function fun() {
+            $.ajax({
+                url:"/testAjax.do" ,
+                type:"POST",
+                data:{"username":"jack"},
+                success:function(data){
+                    alert(data);
+                    document.getElementById("text").innerHTML = data;
+                },
+                error:function(data){
+                    alert("路径错误！");
+                    document.getElementById("text").innerHTML = data;
+                },
+                dataType:"text"
+            })
+        }
+    </script>
+
+</head>
+<body>
+
+<input type="button" value="发送ajax请求" onclick="fun();">
+<div id="text">
+
+</div>
+</body>
+</html>

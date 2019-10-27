@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--目标类-->
+    <bean id="userService" class="service.impl.UserServiceImpl"></bean>
+
+    <!--代理类-->
+    <bean id="userServiceImplProxy" class="service.impl.UserServiceImplProxy">
+        <property name="userServiceImpl" ref="userService"></property>
+    </bean>
+
+    <!--注册日期转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="util.UtilDateConverter">
+                    <property name="pattern" value="yyyy-MM-dd"></property>
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="testStringToDate" class="ui.TestStringToDate">
+        <property name="dateValue" value="2019-09-10"></property>
+    </bean>
+</beans>

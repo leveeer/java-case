@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="numberForm" type="com.jxau.form.NumberForm"></form-bean>
+    </form-beans>
+
+    <action-mappings>
+        <action path="/result"
+                type="com.jxau.actions.NumberAction"
+                name="numberForm"
+                scope="request"
+                validate="false">
+            <forward name="index" path="/index.jsp"></forward>
+        </action>
+    </action-mappings>
+</struts-config>

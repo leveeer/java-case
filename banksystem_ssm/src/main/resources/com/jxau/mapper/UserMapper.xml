@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxau.mapper.UserMapper">
+    <resultMap id="userMap" type="user">
+        <id property="id" column="uid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="money" column="money"/>
+        <result property="isLocked" column="isLocked"/>
+    </resultMap>
+
+    <!--注册-->
+    <insert id="register" parameterType="user">
+        insert into user(username, password, money, isLocked) values (#{username}, #{password}, #{money}, #{isLocked});
+    </insert>
+
+    <!--登录-->
+    <select id="findUserByUsernameAndPassword" resultMap="userMap" parameterType="user">
+        select * from user where username = #{username} and password = #{password};
+    </select>
+
+    <!--更新余额-->
+    <update id="updateBalance" parameterType="user">
+        update user set money = #{money} where uid = #{id};
+    </update>
+
+    <!--根据id查询用户-->
+    <select id="findUserById" parameterType="Integer" resultMap="userMap">
+        select * from user where uid = #{id};
+    </select>
+
+    <!--根据姓名查询用户-->
+    <select id="findUserByUsername" parameterType="String" resultMap="userMap">
+        select * from user where username = #{getUser}
+    </select>
+
+    <!--查询所有-->
+    <select id="findAllUser" resultMap="userMap">
+        select * from user
+    </select>
+
+    <!--修改密码-->
+    <update id="updatePwdById">
+        update user set password = #{newPwd} where uid = #{id};
+    </update>
+
+    <update id="changeLocked">
+        update user set isLocked = #{isLocked} where uid = #{id};
+    </update>
+
+    <select id="findUserByCondition" resultMap="userMap" parameterType="com.jxau.vo.QueryVo">
+        select * from user
+        <where>
+            <if test="id != null">
+                and uid = #{id}
+            </if>
+            <if test="username != null">
+                and username like "%"#{username}"%"
+            </if>
+        </where>
+    </select>
+</mapper>

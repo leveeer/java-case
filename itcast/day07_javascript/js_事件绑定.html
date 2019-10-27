@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定</title>
+
+</head>
+<body>
+        <img id="light" src="img/off.gif" onclick="fun()";>;
+        <img id="light2" src="img/on.gif">
+
+    <script>
+        /*
+            如何绑定事件（两种方式）
+            1、直接在HTML标签上指定事件的属性（操作），属性值就是js代码
+                    事件：onclick---点击事件
+            2、通过js获取元素对象，指定事件属性，设置一个函数
+         */
+        //第一种方式
+        function fun() {
+            alert('我被点了');
+            alert('我又被点了');
+        }
+
+
+        //第二种方式
+        //获取light2对象
+        var light2 = document.getElementById("light2");
+        light2.onclick = fun2;
+        function fun2() {
+            alert('咋老点我');
+        }
+    </script>
+</body>
+</html>

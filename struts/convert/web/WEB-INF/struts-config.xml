@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+        <form-beans>
+        		<form-bean name="ConvertForm" type="com.jxau.forms.ConvertForm"></form-bean>
+        </form-beans>
+        
+        <action-mappings>
+        		<action path="/convert"
+        					name="ConvertForm"
+        					scope="request"
+  							type="com.jxau.actions.ConvertAction"
+        		>			
+        		<forward name="index" path="/index.jsp"></forward>
+        		</action>
+        </action-mappings>
+
+    <!--第二种方式：自定义一个插件类，实现PlugIn接口，在插件类中将转换器注册进来-->
+    <!--<plug-in className="com.jxau.plugins.ConvertPlugIn"></plug-in>-->
+</struts-config>

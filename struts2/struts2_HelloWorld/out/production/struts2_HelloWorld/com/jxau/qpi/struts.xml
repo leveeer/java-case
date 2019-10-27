@@ -1,0 +1,12 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>-->
+    <package name="api" namespace="/" extends="struts-default">
+        <action name="Demo02Action" class="com.jxau.qpi.Demo02Action" method="execute">
+            <result name="success">/api.jsp</result>
+        </action>
+
+    </package>
+</struts>

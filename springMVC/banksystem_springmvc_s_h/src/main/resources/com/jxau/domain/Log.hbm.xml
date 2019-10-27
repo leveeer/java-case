@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jxau.domain">
+    <class name="com.jxau.domain.Log" table="log">
+        <id name="opId" column="l_id">
+            <generator class="native"/>
+        </id>
+        <property name="opType" column="l_type"/>
+        <property name="opTime" column="l_time" type="java.util.Date"/>
+        <property name="opMoney" column="l_money" type="java.math.BigDecimal"/>
+        <property name="beforeMoney" column="l_beforeMoney" type="java.math.BigDecimal"/>
+        <property name="currentMoney" column="l_currentMoney" type="java.math.BigDecimal"/>
+        <many-to-one name="user" column="uid" cascade="all"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,6 @@
+#new file
+#Wed Jun 12 00:06:50 CST 2019
+qq=1519695805
+tel=15797954706
+password=123
+name=zhangsan

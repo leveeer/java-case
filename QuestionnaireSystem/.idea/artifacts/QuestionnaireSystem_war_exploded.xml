@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="QuestionnaireSystem:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/QuestionnaireSystem_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="QuestionnaireSystem" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib1" />
+          <element id="library" level="project" name="lib2" />
+          <element id="library" level="module" name="JUnit4" module-name="QuestionnaireSystem" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="QuestionnaireSystem/web/Web" />
+    </root>
+  </artifact>
+</component>

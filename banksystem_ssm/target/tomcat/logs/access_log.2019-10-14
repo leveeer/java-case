@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [14/Oct/2019:00:35:11 +0800] "GET /admin/findAllUser.do HTTP/1.1" 200 11091 http-bio-8080-exec-3 11
+0:0:0:0:0:0:0:1 - - [14/Oct/2019:00:35:17 +0800] "GET /admin/findAllUser.do HTTP/1.1" 200 11091 http-bio-8080-exec-3 6
+0:0:0:0:0:0:0:1 - - [14/Oct/2019:00:36:00 +0800] "GET /admin/findAllUser.do HTTP/1.1" 200 11016 http-bio-8080-exec-1 1626
+0:0:0:0:0:0:0:1 - - [14/Oct/2019:00:36:42 +0800] "GET /pages/adminIndex.jsp HTTP/1.1" 200 5457 http-bio-8080-exec-3 17

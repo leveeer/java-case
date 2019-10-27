@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置properties,可以在标签内部配置连接数据库的信息，也可以通过属性引用外部的配置文件信息
+        resource属性：用于指定配置文件的位置，按照类路径的写法写，并且必须存在于类路径下
+        url属性：是要求按照url的写法来写地址（file:///D:/IdeaProjects/mybatis/mybatis_crud/src/main/resources/SqlMapConfig.xml）
+                URL：Uniform Resource Locator 统一资源定位符，它可以唯一标识一个资源的位置
+                写法：
+                     协议     主机   端口        URI
+                    http://localhost:8080/mybatis/mybatis
+                 URI：Uniform Resource Identifier 统一资源标识符，它在具体应用中可以唯一标识一个资源
+    -->
+    <properties resource="jdbcConfig.properties">
+        <!--<property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis_01"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>-->
+    </properties>
+
+
+    <!--使用typeAliases配置别名，他只能配置domain中类的别名-->
+    <typeAliases>
+        <!--typeAlias用于配置别名，type属性指定的是实体类全限定类名，alias属性指定别名，当指定了别名就不区分大小写，全限定类名还可以继续使用-->
+        <!--<typeAlias type="com.jxau.domain.User" alias="user"/>-->
+        <!--package：用于指定配置别名的包，当指定之后，该包下的实体类都会注册别名，并且类名就是别名，不区分大小写-->
+        <package name="com.jxau.domain"/>
+    </typeAliases>
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--<mapper resource="com/jxau/dao/UserDao.xml"/>-->
+        <!--package标签用于指定dao接口所在的包,当指定之后，就不需要写mapper resource或mapper class了-->
+        <package name="com.jxau.dao"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,40 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>-->
+    <package name="dynamic" namespace="/" extends="struts-default">
+
+        <!--多个Action方法调用-->
+        <!--<action name="Demo01Action_add" class="com.jxau.dynamic.Demo01Action" method="add">
+            <result name="success"></result>
+        </action>
+
+        <action name="Demo01Action_delete" class="com.jxau.dynamic.Demo01Action" method="delete">
+            <result name="success"></result>
+        </action>
+
+        <action name="Demo01Action_update" class="com.jxau.dynamic.Demo01Action" method="update">
+            <result name="success"></result>
+        </action>
+
+        <action name="Demo01Action_find" class="com.jxau.dynamic.Demo01Action" method="find">
+            <result name="success"></result>
+        </action>-->
+
+        <!--动态Action配置-->
+        <!--方式一-->
+        <action name="Demo01Action_*" class="com.jxau.dynamic.Demo01Action" method="{1}">
+            <result name="success">/hello.jsp</result>
+        </action>
+
+        <!--方式二-->
+        <!--配置动态方法调用常量，在struts标签下配置，默认为false-->
+        <!--<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>-->
+        <!--此时访问添加用户方法资源路径应为：http://localhost:8080/dynamic/Demo01Action!add.action-->
+        <!-- <action name="Demo01Action" class="com.jxau.dynamic.Demo01Action" >
+            <result name="success">/hello.jsp</result>
+        </action>-->
+
+    </package>
+</struts>

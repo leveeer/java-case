@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+
+</head>
+<body>
+
+            <img id="light" src="img/off.gif">
+
+            <h1 id = "title">悔创阿里杰克马</h1>
+            <script>
+                /*
+                    功能：控制html文档的内容
+                    代码：获取页面标签（元素）对象 Element
+                        * document.getElementById("id值");通过id获取元素对象
+                    操作Element对象：
+                        1.修改属性值；
+                            *明确获取的对象是哪一个
+                            *查看API文档，找其中有哪些属性可以设置
+                        2.修改标签体内容；
+                            *属性：innerHTML
+                 */
+                var light = document.getElementById("light");
+                alert("我要换图片了");
+                light.src="img/on.gif";
+
+                /*var title = document.getElementById("title");
+                alert("我要换内容了。。。");
+                title.innerHTML = "不识妻美刘强东。。。"*/
+
+            </script>
+
+</body>
+</html>

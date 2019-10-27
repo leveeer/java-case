@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="aopalliance-">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/aopalliance-.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aspectjweaver-1.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

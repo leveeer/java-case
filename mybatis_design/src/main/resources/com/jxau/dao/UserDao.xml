@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.jxau.dao.UserDao">
+    <!--配置查询所有-->
+    <select id="findAll" resultType="com.jxau.domain.User">
+        <!--select * from user;-->
+    </select>
+
+    <select id="findOne" resultType="com.jxau.domain.User">
+
+    </select>
+</mapper>
+
+

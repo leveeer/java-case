@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <description>calculator function</description>
+    <display-name>functions</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>op</short-name>
+    <uri>http://www.jxau.com/calculate</uri>
+
+
+
+    <!--加法计算-->
+    <function>
+        <name>add</name>
+        <function-class>com.jxau.functions.Function</function-class>
+        <function-signature>double add(double,double)</function-signature>
+    </function>
+
+    <!--减法计算-->
+    <function>
+        <name>subtract</name>
+        <function-class>com.jxau.functions.Function</function-class>
+        <function-signature>double subtract(double,double)</function-signature>
+    </function>
+
+    <!--乘法计算-->
+    <function>
+        <name>multiply</name>
+        <function-class>com.jxau.functions.Function</function-class>
+        <function-signature>double add(double,double)</function-signature>
+    </function>
+
+    <!--除法计算-->
+    <function>
+        <name>divide</name>
+        <function-class>com.jxau.functions.Function</function-class>
+        <function-signature>double divide(double,double)</function-signature>
+    </function>
+
+    <function>
+        <name>say</name>
+        <function-class>com.jxau.functions.Function</function-class>
+        <function-signature>java.lang.String say(java.lang.String)</function-signature>
+    </function>
+</taglib>

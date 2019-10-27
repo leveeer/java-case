@@ -1,0 +1,14 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jxau.entity">
+
+    <class name="Course" table="course">
+        <id name="class_id">
+            <generator class="native"/>
+        </id>
+        <property name="class_name"/>
+        <property name="teacher"/>
+        <property name="score"/>
+    </class>
+</hibernate-mapping>

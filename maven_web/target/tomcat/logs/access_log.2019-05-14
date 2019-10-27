@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [14/May/2019:08:29:09 +0800] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-1 1481
+0:0:0:0:0:0:0:1 - - [14/May/2019:08:29:09 +0800] "GET /favicon.ico HTTP/1.1" 200 97 http-bio-8080-exec-3 83
+127.0.0.1 - - [14/May/2019:08:31:01 +0800] "PUT /manager/text/deploy?path=%2F&update=true HTTP/1.1" 405 1065 http-bio-8080-exec-5 2
+0:0:0:0:0:0:0:1 - - [14/May/2019:08:41:10 +0800] "GET / HTTP/1.1" 200 97 http-bio-8080-exec-1 1221
+0:0:0:0:0:0:0:1 - - [14/May/2019:08:41:10 +0800] "GET /favicon.ico HTTP/1.1" 200 97 http-bio-8080-exec-3 2
+0:0:0:0:0:0:0:1 - - [14/May/2019:12:24:34 +0800] "GET / HTTP/1.1" 200 97 http-bio-8080-exec-1 79
+0:0:0:0:0:0:0:1 - - [14/May/2019:12:24:34 +0800] "GET /favicon.ico HTTP/1.1" 200 97 http-bio-8080-exec-3 1

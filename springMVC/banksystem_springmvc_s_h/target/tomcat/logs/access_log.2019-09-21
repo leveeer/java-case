@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [21/Sep/2019:01:41:31 +0800] "GET / HTTP/1.1" 200 2610 http-bio-8080-exec-1 203
+0:0:0:0:0:0:0:1 - - [21/Sep/2019:01:41:39 +0800] "POST /user/login.do HTTP/1.1" 200 6622 http-bio-8080-exec-3 603
+0:0:0:0:0:0:0:1 - - [21/Sep/2019:01:41:39 +0800] "GET /css/style_adminLeft.css HTTP/1.1" 304 - http-bio-8080-exec-5 6
+0:0:0:0:0:0:0:1 - - [21/Sep/2019:01:41:45 +0800] "GET /user/record.do?id=1 HTTP/1.1" 200 5087 http-bio-8080-exec-6 788
+0:0:0:0:0:0:0:1 - - [21/Sep/2019:01:41:47 +0800] "GET /user/record.do?id=1&currentPageStr=2 HTTP/1.1" 200 4707 http-bio-8080-exec-7 15
+0:0:0:0:0:0:0:1 - - [21/Sep/2019:01:41:49 +0800] "GET /user/record.do?id=1&currentPageStr=1 HTTP/1.1" 200 5087 http-bio-8080-exec-8 11
+0:0:0:0:0:0:0:1 - - [21/Sep/2019:01:41:50 +0800] "GET /pages/userIndex.jsp HTTP/1.1" 200 6622 http-bio-8080-exec-10 3
