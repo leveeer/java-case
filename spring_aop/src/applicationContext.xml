@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- bean definitions here -->
+
+    <!--启用注解开发AOP-->
+    <aop:aspectj-autoproxy/>
+
+    <bean id="userService" class="com.jxau.service.impl.UserServiceImpl"></bean>
+
+    <bean id="aspectClass" class="com.jxau.aspect.AspectClass"></bean>
+
+    <!--<bean id="aspectClassParam" class="com.jxau.aspect.AspectClassParam"></bean>-->
+
+    <!--
+    <aop:config>
+        <aop:aspect id="aspect" ref="aspect">
+            <aop:pointcut id="allAddMethod" expression="execution(* com.jxau.service.impl.UserServiceImpl.add*(..))"></aop:pointcut>
+            <aop:before method="check" pointcut-ref="allAddMethod"></aop:before>
+        </aop:aspect>
+    </aop:config>-->
+
+
+
+</beans>

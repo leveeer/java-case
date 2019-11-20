@@ -1,0 +1,40 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--修改struts2常量配置-->
+    <!--i18n:国际化解决post提交乱码-->
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <!--指定访问Action时的后缀名为.action或空-->
+    <constant name="struts.action.extension" value="action,,"></constant>
+    <!--指定struts2是否以开发模式运行
+        1、热加载主配置文件
+        2、提供更多错误信息输出，方便开发时的调试
+    -->
+    <constant name="struts.devMode" value="true"></constant>
+    <!--package：将Action配置封装，就是可以在package中配置多个action
+        name：给包起个名字，起到标识作用，随便起，一般一个模块对应一个包，不能与其他包名重复
+        namespace：给action的访问路径中定义一个命名空间
+        extends：继承一个指定包
+        abstract：包是否为抽象的，标识性属性
+    -->
+    <package name="hello" namespace="/" extends="struts-default">
+        <!--action元素：配置action类
+            name：决定了Action访问资源名
+            class：Action类的完整类名
+            method：指定调用Action类中的哪个方法来处理请求
+        -->
+        <action name="HelloAction" class="com.jxau.actions.HelloAction" method="hello">
+            <!--result：转向信息的配置
+                name：标识结果处理的名称，与Action中方法的返回值对应
+                type：指定调用哪一个result类来处理结果，默认使用转发
+                标签体：填写页面的相对路径
+            -->
+            <result name="success">/hello.jsp</result>
+        </action>
+    </package>
+    <!--引入其他struts配置文件-->
+    <include file="com/jxau/dynamic/struts.xml"></include>
+    <include file="com/jxau/qpi/struts.xml"></include>
+    <include file="com/jxau/param/struts.xml"></include>
+</struts>

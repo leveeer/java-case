@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jxau.domain">
+
+    <class name="Teacher" table="teacher">
+       <id name="tid" column="t_id">
+           <generator class="native"></generator>
+       </id>
+        <property name="tname" column="t_name"></property>
+        <property name="tpassword" column="t_password"></property>
+        <property name="tclass" column="t_class"></property>
+    </class>
+</hibernate-mapping>

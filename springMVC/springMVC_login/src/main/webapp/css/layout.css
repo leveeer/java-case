@@ -1,0 +1,94 @@
+
+
+
+
+
+
+/*右侧点位置*/
+.section-btn {
+	top: 20.5%;
+}
+
+
+.section{ background:url(../images/content_bg.png) no-repeat center center; background-size:70% 90vh }
+.section-0{ background:none; }
+
+.section_content{ width:50.5vw;height:88vh;margin:0px auto; left:0; right:0;font-size:20px;line-height:34px; }
+.section-0 .section_content{ width:100%; height:auto}
+
+/*新样式 高1086*/
+/*第0屏*/
+.Jpage0_btlog{ width:100%;text-align:left; position:absolute; left:0; height:100vh; position:relative;
+-webkit-display:flex; -webkit-align-items:center; -webkit-justify-content:center;
+-moz-display:flex; -moz-align-items:center; -moz-justify-content:center;
+-ms-display:flex;  -ms-align-items:center;  -ms-justify-content:center;
+-o-display:flex; -o-align-items:center; -o-justify-content:center;
+display:flex; align-items:center; justify-content:center;
+}
+.Jpage0_btlog > img{ display:block;}
+
+
+/*第屏标题*/
+.section_content em{ height:7.5vh; display:block;  
+-webkit-display:flex; -webkit-align-items:center; -webkit-justify-content:center;
+-moz-display:flex; -moz-align-items:center; -moz-justify-content:center;
+-ms-display:flex;  -ms-align-items:center;  -ms-justify-content:center;
+-o-display:flex; -o-align-items:center; -o-justify-content:center;
+display:flex; align-items:center; justify-content:center;
+padding-top:5vh; font-size:32px; color:#fe6c00; font-weight:bold;
+
+-webkit-text-shadow: 1px 1px 5px #000; 
+-moz-text-shadow: 1px 1px 5px #000; 
+-ms-text-shadow: 1px 1px 5px #000; 
+-o-text-shadow: 1px 1px 5px #000; 
+text-shadow: 1px 1px 5px #000;  
+}
+.section_content em img{ max-height:74px; height:6.8vh; display:block;}
+
+
+/*第二屏*/
+.page1_shuju_cont{ width:100%; height:70vh; text-align:center; margin:3.5vh auto 0px auto; overflow:hidden; 
+-webkit-display:flex; -webkit-align-items:center;  -webkit-justify-content:space-around;-webkit-flex-direction:column; 
+-moz-display:flex; -moz-align-items:center;  -moz-justify-content:space-around;-moz-flex-direction:column; 
+-ms-display:flex; -ms-align-items:center;  -ms-justify-content:space-around;-ms-flex-direction:column; 
+-o-display:flex; -o-align-items:center;  -o-justify-content:space-around;-o-flex-direction:column; 
+display:flex; align-items:center;  justify-content:space-around;flex-direction:column; 
+ }
+
+.page1_shuju_cont .shuju_back{ width:13vw;  float:left;  }
+.page1_shuju_cont .shuju_back strong{ font-size:28px; line-height:41px; font-weight:normal; display:block; width:25vh;height:25vh;color:#fff; margin:0px auto; max-height:192px;max-width:192px;background:url(../images/p1_yuan.png) no-repeat center top; background-size:100% 100%;
+-webkit-display:flex; -webkit-align-items:center; -webkit-justify-content:center; -webkit-flex-direction:column;
+-moz-display:flex; -moz-align-items:center; -moz-justify-content:center; -moz-flex-direction:column;
+-ms-display:flex; -ms-align-items:center; -ms-justify-content:center; -ms-flex-direction:column;
+-o-display:flex; -o-align-items:center; -o-justify-content:center; -o-flex-direction:column;
+display:flex; align-items:center; justify-content:center; flex-direction:column; 
+
+ }
+.page1_shuju_cont .shuju_back strong span{ display:block}
+
+
+.page1_shuju_cont .shuju_back b{ font-size:24px;  color:#000; padding-top:5px; display:block; font-weight:normal}
+
+.page1_shuju_cont .page1_zu{-webkit-display:flex; -webkit-align-items:center; -webkit-justify-content:space-around; 
+-moz-display:flex; -moz-align-items:center; -moz-justify-content:space-around;
+-ms-display:flex; -ms-align-items:center; -ms-justify-content:space-around;
+-o-display:flex; -o-align-items:center; -o-justify-content:space-around;
+display:flex; align-items:center; justify-content:space-around; width:100%;
+ }
+
+/*第二屏*/
+.page2_quxtu{ width:100%; height:70vh; margin:12vh auto 0px auto; overflow:hidden;  }
+.page2_quxtu #echarts_ydzb{ width:100%; height:60vh; margin:0px auto}
+
+
+/*第三屏*/
+.page3_quxtu{ width:100%; height:70vh; margin:12vh auto 0px auto; overflow:hidden;  }
+.page3_quxtu #echarts_zxtt{ width:98%; height:60vh; margin:0px auto}
+
+
+/*第四屏*/
+.page4_quxtu{ width:100%; height:70vh; margin:12vh auto 0px auto; overflow:hidden;  }
+.page4_quxtu #echarts_nlzb{ width:98%; height:60vh; margin:0px auto}
+
+
+

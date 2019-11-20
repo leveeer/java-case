@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/antlr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/commons-beanutils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/commons-validator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/jakarta-oro.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/standard.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/commons-digester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/struts.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/fileUpAndDown_war_exploded/WEB-INF/lib/commons-fileupload.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="StudentForm" type="com.jxau.web.forms.StudentForm"/>
+        <form-bean name="AdminForm" type="com.jxau.web.forms.AdminForm"/>
+    </form-beans>
+
+    <!--处理学生模块请求-->
+    <action-mappings>
+        <action path="/student"
+                type="com.jxau.web.actions.StudentAction"
+                name="StudentForm"
+                scope="request"
+                validate="false"
+                parameter="command"
+                >
+            <forward name="index" path="/index.jsp"/>
+            <forward name="login" path="/login.jsp"/>
+            <forward name="register_success" path="/register_success.jsp"/>
+            <forward name="SeestudentInfo" path="/student/SeestudentInfo.jsp"/>
+            <forward name="showgrade" path="/student/showgrade.jsp"/>
+            <forward name="StudentAllAnnounce" path="/student/StudentAllAnnounce.jsp"/>
+            <forward name="studentShowAnnounce" path="/student/studentShowAnnounce.jsp"/>
+            <forward name="logout" path="/admin.do?command=logout"/>
+        </action>
+
+        <!--处理管理员模块的请求-->
+        <action path="/admin"
+                type="com.jxau.web.actions.AdminAction"
+                name="AdminForm"
+                scope="request"
+                validate="false"
+                parameter="command"
+                >
+            <forward name="manage" path="/manage.jsp"/>
+            <forward name="login" path="/login.jsp"/>
+            <forward name="studentInfo" path="/admin/studentInfo.jsp"/>
+            <forward name="findStudentInfo" path="/admin.do?command=findStudentInfo"/>
+            <forward name="studentUpdate" path="/admin/studentUpdate.jsp"/>
+            <forward name="allStudentGrade" path="/admin/studentGrade.jsp"/>
+            <forward name="studentGrade" path="/admin.do?command=studentGrade"/>
+            <forward name="studentGradeAdd" path="/admin/studentGradeAdd.jsp"/>
+            <forward name="announceManager" path="/admin/announceManager.jsp"/>
+            <forward name="findAllAnnounce" path="/admin.do?command=findAllAnnounce"/>
+            <forward name="findAllAnnounces" path="/admin.do?command=findAllAnnounces"/>
+            <forward name="courseManager" path="/admin/courseManager.jsp"/>
+            <forward name="findAllCourses" path="/admin.do?command=findAllCourses"/>
+            <forward name="courseUpdate" path="/admin/courseUpdate.jsp"/>
+            <forward name="showAnnounce" path="/admin/showAnnounce.jsp"/>
+            <forward name="updateAnnounce" path="/admin/updateAnnounce.jsp"/>
+            <forward name="studentGradeUpdate" path="/admin/studentGradeUpdate.jsp"/>
+            <forward name="adminInfo" path="/admin/adminInfo.jsp"/>
+            <forward name="logout" path="/admin.do?command=logout"/>
+        </action>
+
+    </action-mappings>
+</struts-config>

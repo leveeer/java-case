@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jxau.domain">
+    <!--类对应表-->
+   <class name="Student" table="student">
+       <!--主键及对应的列-->
+       <id name="id" column="stu_id" type="java.lang.Long">
+           <!--主键生成方式(策略)，native是使用本地数据库的自动增长能力-->
+           <generator class="native"/>
+       </id>
+       <!--配置其他属性及与数据库字段的对应关系-->
+       <property name="name" column="stu_name"/>
+       <property name="password" column="stu_password"/>
+       <property name="age" column="stu_age"/>
+       <property name="sex" column="stu_sex"/>
+       <many-to-one name="teacher" column="teacherId" cascade="all"/>
+
+   </class>
+</hibernate-mapping>

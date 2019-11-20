@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础选择器</title>
+
+    <style><!-- 内部样式 -->
+        /*id选择器*/
+        #div1{
+            color:red;
+        }
+
+        /*元素选择器*/
+        div{
+            color: blue;
+        }
+
+        /*类选择器*/
+        .cls1{
+            color:chartreuse;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="div1">江西农业大学</div><!-- id选择器-->
+    <div>软件学院</div><!--元素选择器,原来的div1被覆盖，优先级高于id选择器-->
+    <p class="cls1">1613班</p><!--类选择器-->
+
+</body>
+</html>
