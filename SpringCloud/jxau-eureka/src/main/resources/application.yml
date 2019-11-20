@@ -1,0 +1,10 @@
+
+server:
+  port: 10086
+spring:
+  application:
+    name: jxau-eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10087/eureka
